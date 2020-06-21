@@ -1,13 +1,24 @@
-import React from 'react';
+import React ,{ useState, useEffect } from 'react';
 import {Container, CssBaseline, Typography,Button} from '@material-ui/core';
+import  { ElemetsTable,  ElementBar } from '../../components';
+import { vihecals } from '../../mock';
+const Dashboard = () => {
 
-const Dashboard = () => <React.Fragment>
+  const [vihecalsList, setVihecals] = useState([]);
+
+  useEffect(() => {
+    setVihecals(vihecals)
+  });
+
+return (<React.Fragment>
 <CssBaseline />
+<ElementBar/>
 <Container maxWidth="false">
   <Typography component="div">
-  
+  <ElemetsTable list={vihecalsList}/>
       </Typography>
 </Container>
-</React.Fragment>;
+</React.Fragment>)
+}
 
 export default Dashboard;
